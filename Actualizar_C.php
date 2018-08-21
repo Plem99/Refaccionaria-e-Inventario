@@ -1,12 +1,16 @@
 <?php
+//Haremos un inicio de sesion.
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <?php
-		include_once 'conexion.php';
-		$id = $_GET['id'];
+    //Incluimos la conexion a la base de datos.
+    include_once 'conexion.php';
+    //Obtendremos el id.
+    $id = $_GET['id'];
+    //Declaramos la variable sentencia y le damos el valor de id de la tabla clientes.
 		$sentencia = "SELECT * FROM clientes WHERE id =".$id;?>
   <!--Esto sirve para escalar nuestra pagina web en diferentes dispositivos con diferentes dimesiones-->
   <meta charset="utf-8">
@@ -65,34 +69,40 @@ session_start();
 </div>
 
   <!--Form-->
-
+<!--Mediante el metodo post haremos un enlace al archivo Actualizar_C_A.php para ejecutar la accion de remplazar datos del cliente-->
 <form method="post" action="<?php echo 'Actualizar_C_A.php?id='.$id;?>">
-
+<!--Mediante un for haremos que haga la consulta a la tabla clientes por cada id que exista.-->
 <?php foreach ($dbconnection ->query($sentencia) as $row ) {?> 
 
     <div class="form-group col-md-5">
       <label for="namegroup">Nombre</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Nombre_C" placeholder="Nombre" value="<?php echo $row['Nombre_C'];?>">
     </div>
     <div class="form-group col-md-5">
       <label for="namegroup">Apellido Paterno</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Apellido_Paterno" placeholder="Apellido Paterno" value="<?php echo $row['Apellido_Paterno'];?>">
     </div>
     <div class="form-group col-md-5">
       <label for="namegroup">Apellido Materno</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Apellido_Materno" placeholder="Apellido Materno" value="<?php echo $row['Apellido_Materno'];?>">
     </div>
     <div class="form-group col-md-5">
       <label for="teachgroup">Correo Electronico</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Correo_Electronico_C" placeholder="Correo Electronico" value="<?php echo $row['Correo_Electronico_C'];?>">
     </div>
     <div class="form-group col-md-5">
       <label for="teachgroup">Telefono</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Telefono_C" placeholder="Telefono" value="<?php echo $row['Telefono_C'];?>">
     </div>
 </div>
-
+<!--Mediante el submit (Boton de Guardar) ejecutaremos el metodo post.-->
   <button type="submit" name="guardarCliente"class="btn btn-dark">Guardar</button>
+  <!--El boton de cancelar te redireccionara al menu-->
   <a type="cancel" href="panelSU.php" class="btn btn-dark" >Cancelar</a>
 </form>
 

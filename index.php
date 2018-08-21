@@ -1,6 +1,9 @@
 <?php
+	//Iniciamos la sesion.
 	session_start();
+	//Incluimos la conexion de php.
 	include 'conexion.php';
+	//Si 
 	if(isset($_SESSION['Usuario'])){
 		echo '<script> window.location="panelSU.php"; </script>';
 	}
@@ -71,8 +74,10 @@
 		<h1  class="h3 mb-3 font-weight-normal text-light">Log In</h1>
 
 		<label class="sr-only" style="background-color: #000000;"for="inputUsername">Username</label>
+		<!--Es el cuadro de texto donde ingresaras el nombre de usuario con el nombre de "Usuario"-->
 		<input id="inputUsername" class="form-control bg-white text-black"placeholder="Username" type="text" name="Usuario">
 		<label class="sr-only  text-white"style="background-color: #000000;" for="inputPassword">Password</label>
+		<!--Es el cuadro de texto donde ingresaras la contraseña del usuario con el nombre de "Contrasena"-->
 		<input id="inputPassword" class="form-control bg-white text-black" placeholder="Password" type="password" name="Contrasena">
 		<button class="btn btn-lg btn-primary btn-block mt-3 btn-outline-#000000"style="background-color: #000000;" type="submit" name="login">Log In</button>
 		<br>

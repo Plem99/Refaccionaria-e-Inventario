@@ -1,4 +1,5 @@
 <?php
+//Iniciamos sesion.
 session_start();
 ?>
 <!DOCTYPE html>
@@ -61,31 +62,38 @@ session_start();
 </div>
 
   <!--Form-->
+  <!--Mediante el metodo post haremos que ejecute la accion de tomar el archivo registrar_Clientes_A.php para iniciar el registro-->
 <form action="registrar_Clientes_A.php" method="post">
 
     <div class="form-group col-md-5">
       <label for="namegroup">Nombre</label>
       <input type="text" class="form-control" name="Nombre_C" placeholder="Nombre">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
     </div>
     <div class="form-group col-md-5">
       <label for="namegroup">Apellido Paterno</label>
       <input type="text" class="form-control" name="Apellido_Paterno" placeholder="Apellido Paterno">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
     </div>
     <div class="form-group col-md-5">
       <label for="namegroup">Apellido Materno</label>
       <input type="text" class="form-control" name="Apellido_Materno" placeholder="Apellido Materno">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
     </div>
     <div class="form-group col-md-5">
       <label for="teachgroup">Correo Electronico</label>
       <input type="text" class="form-control" name="Correo_Electronico_C" placeholder="Correo Electronico">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
     </div>
     <div class="form-group col-md-5">
       <label for="teachgroup">Telefono</label>
       <input type="text" class="form-control" name="Telefono_C" placeholder="Telefono">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
     </div>
 </div>
-
+  <!--Con el submit haremos que se ejecute el metodo post.-->
   <button type="submit" name="guardarCliente"class="btn btn-dark">Guardar</button>
+  <!--Si damos en el boton de cancelar nos redireccionara al menu-->
   <a type="cancel" href="panelSU.php" class="btn btn-dark" >Cancelar</a>
 </form>
 

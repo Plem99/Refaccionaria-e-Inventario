@@ -1,4 +1,5 @@
 <?php
+//Iniciamos Sesion.
 session_start();
 ?>
 
@@ -55,14 +56,19 @@ session_start();
   </thead>
   <tbody>
   <?php
+   //Incluimos la conexion a la bd.
       include_once 'conexion.php';
+      //Desde la sentencia seleccionaremos de la tabla proximosproductos, para mostrarla por orden del id.
       $sentencia = "SELECT * FROM proximosproductos ORDER BY id ASC";
+      //Haremos un for para que se impriman los datos que tenemos en la bd.
       foreach ($dbconnection->query($sentencia) as $row) {
+        //Haremos impresiones de los datos en cada columna de los datos de la bd en cada espacio.
           echo "<tr><td>".$row['id']."</td";
           echo "<tr><td>".$row['Marca_P_P']."</td";
           echo "<tr><td>".$row['Codigo_P_P']."</td";
           echo "<tr><td>".$row['Nombre_P_P']."</td";
           echo "<tr>";
+          //Botones de borrar para que te redireccione al archivo de borrar_C.php
           echo "<td><a href='borrar_P_P.php?id=".$row['id']."'>Borrar</a></td>";
       }
   ?>

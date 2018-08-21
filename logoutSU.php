@@ -1,7 +1,10 @@
 <?php
+//Inicamos sesion.
 session_start();
+//Cerramos sesion.
 session_destroy();
 echo 'Cerraste sesión';
+//Te redireccionara al index cuando se ejecute.
 echo '<script> window.location="index.php"; </script>';
 ?>
 <!DOCTYPE html>

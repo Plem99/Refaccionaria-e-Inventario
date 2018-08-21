@@ -11,6 +11,7 @@
 
 	//Declaracion de Variable para decir que hara una actualizacion en la tabla definida donde declararemos las variables con la relacion a los campos en la base de datos.
 	$sentencia = $dbconnection -> prepare("UPDATE clientes SET Nombre_C = '$nombre', Apellido_Paterno = '$app', Apellido_Materno = '$apm', Correo_Electronico_C = '$email', Telefono_C = '$telefono' WHERE id = '$id'");
+	//Se hara la ejecucion de las variables definidas con los valores de la tabla de base de datos.
 	$resultado = $sentencia -> execute([$nombre,$app,$apm,$email,$telefono]);
 
 	if ($resultado) {

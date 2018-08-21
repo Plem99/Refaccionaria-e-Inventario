@@ -1,8 +1,9 @@
 <?php 
+	//Declaracion de variables con los datos de usuario de la basede datos.
 	$user = "root";
 	$pass = "";
 	$dbName = "refaccionaria";
-
+	//Se hara la conexion mediant el PDO declarando los datos necesarios para hacer la conexion.
 	try {
 		$dbconnection = new PDO('mysql:host=localhost;dbname='.$dbName,$user,$pass);
 		//Por si detecta algun error.

@@ -1,4 +1,5 @@
 <?php
+//Iniciamos sesion.
 session_start();
 ?>
 <!DOCTYPE html>
@@ -63,6 +64,7 @@ session_start();
     </div>
 
   <!--Form-->
+  <!--Mediante el metodo post haremos que ejecute la accion de tomar el archivo registrar_Productos_A.php para iniciar el registro-->
     <form action="registrar_Productos_A.php" method="post">
       
 
@@ -83,23 +85,28 @@ session_start();
       <div class="form-group col-md-5">
         <label for="username">Codigo</label>
         <input type="text" class="form-control" name="Codigo_P" placeholder="Codigo">
+        <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
       </div>
 
       <div class="form-group col-md-5">
       <label for="nombre">Nombre del Producto</label>
       <input type="text" class="form-control" name="Nombre_P" placeholder="Producto">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
       </div>
 
       <div class="form-group col-md-5">
       <label for="grupo">Cantidad</label>
       <input type="text" class="form-control" name="Cantidad_P"placeholder="Cantidad">
+      <!--Asignamos el nombre de el textinput con el nombre que queremos meter los datos en la bd-->
       </div>
 
 
       
 
   </div>
+  <!--Con el submit haremos que se ejecute el metodo post.-->
       <button type="submit" class="btn btn-dark">Save</button>
+      <!--Si damos en el boton de cancelar nos redireccionara al menu-->
       <a type="cancel" href="panelSU.php" class="btn btn-dark" >Cancel</a>
     </form>
     <br>

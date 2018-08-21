@@ -1,4 +1,5 @@
 <?php
+//Haremos un inicio de sesion.
 session_start();
 ?>
 <!DOCTYPE html>
@@ -6,8 +7,11 @@ session_start();
 <head>
   
 <?php
-		include_once 'conexion.php';
-		$id = $_GET['id'];
+    //Incluimos la conexion a la base de datos.
+    include_once 'conexion.php';
+    //Obtendremos el id.
+    $id = $_GET['id'];
+    //Declaramos la variable sentencia y le damos el valor de id de la tabla productos.
 		$sentencia = "SELECT * FROM productos WHERE id =".$id;?>
   <!--Esto sirve para escalar nuestra pagina web en diferentes dispositivos con diferentes dimesiones-->
   <meta charset="utf-8">
@@ -68,32 +72,35 @@ session_start();
     </div>
 
   <!--Form-->
+  <!--Mediante el metodo post haremos un enlace al archivo Actualizar_P_A.php para ejecutar la accion de remplazar datos de los productos-->
     <form method="post" action="<?php echo 'Actualizar_P_A.php?id='.$id;?>">
-	
+	<!--Mediante un for haremos que haga la consulta a la tabla productos por cada id que exista.-->
   <?php foreach ($dbconnection ->query($sentencia) as $row ) {?> 
 
 
 
       <div class="form-group col-md-5">
         <label for="username">Codigo</label>
+        <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
         <input type="text" class="form-control" name="Codigo_P" placeholder="Codigo" value="<?php echo $row['Codigo_P'];?>">
       </div>
 
       <div class="form-group col-md-5">
       <label for="nombre">Nombre del Producto</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Nombre_P" placeholder="Producto" value="<?php echo $row['Nombre_P'];?>">
       </div>
 
       <div class="form-group col-md-5">
       <label for="grupo">Cantidad</label>
+      <!--Se imprimira los datos de el campo mencionado de la tabla en el cuadro de texto-->
       <input type="text" class="form-control" name="Cantidad_P"placeholder="Cantidad" value="<?php echo $row['Cantidad_P'];?>">
       </div>
 
-
-      
-
   </div>
+  <!--Mediante el submit (Boton de Guardar) ejecutaremos el metodo post.-->
       <button type="submit" class="btn btn-dark">Save</button>
+      <!--El boton de cancelar te redireccionara al menu-->
       <a type="cancel" href="panelSU.php" class="btn btn-dark" >Cancel</a>
     </form>
     <br>

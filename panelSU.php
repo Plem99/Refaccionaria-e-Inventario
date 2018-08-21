@@ -1,7 +1,9 @@
 <?php
+//Iniciamos sesion.
 session_start();
+//Incluimos la conexion a la base de datos.
 include 'conexion.php';
-
+//Solo accedera si se cumole con la condicion de que sea el usuario correcto con sus datos.
 if(isset($_SESSION['Usuario'])) {?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +60,7 @@ if(isset($_SESSION['Usuario'])) {?>
           <br>
           <h1 class="my-4">Refaccionaria PLEM</h1>
           <div class="list-group">
+            <!--Cada opcion que te muestra en pantalla te redireccionara a cada archivo correspondiente dependiendo la opcion-->
             <a href="registro_Clientes.php" class="list-group-item">Registro de Clientes</a>
             <a href="registro_Productos.php" class="list-group-item">Registro de Productos</a>
             <a href="registro_Proximos_P.php" class="list-group-item">Registro de Proximos Productos</a>

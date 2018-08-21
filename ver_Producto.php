@@ -1,4 +1,5 @@
 <?php
+//Iniciamos Sesion.
 session_start();
 ?>
 
@@ -57,15 +58,21 @@ session_start();
   </thead>
   <tbody>
   <?php
+  //Incluimos la conexion a la bd.
       include_once 'conexion.php';
+      //Desde la sentencia seleccionaremos de la tabla productos, para mostrarla por orden del id.
       $sentencia = "SELECT * FROM productos ORDER BY id ASC";
+      //Haremos un for para que se impriman los datos que tenemos en la bd.
       foreach ($dbconnection->query($sentencia) as $row) {
+        //Haremos impresiones de los datos en cada columna de los datos de la bd en cada espacio.
           echo "<tr><td>".$row['id']."</td";
           echo "<tr><td>".$row['Marca_P']."</td";
           echo "<tr><td>".$row['Codigo_P']."</td";
           echo "<tr><td>".$row['Nombre_P']."</td";
           echo "<tr><td>".$row['Cantidad_P']."</td";
+          //Botones de actualizar para que te redireccione al archivo de Actualizar_C.php
           echo "<tr><td><a href='Actualizar_P.php?id=".$row['id']."'>Actualizar</a></td>";
+          //Botones de borrar para que te redireccione al archivo de borrar_C.php
           echo "<td><a href='borrar_P.php?id=".$row['id']."'>Borrar</a></td>";
       }
   ?>
